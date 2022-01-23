@@ -87,7 +87,7 @@ if { $SCORE > $TEMP } {
     set FAIL "$FAIL Size - should match 9\n"
 }
 
-send "nodes \[(1,2),(1,3),(2,3),(2,4),(3,4)\]\n"
+send "norm(nodes \[(1,2),(1,3),(2,3),(2,4),(3,4)\])\n"
 expect {
         "1,2,3,4"  
             {set SCORE [expr $SCORE+7]}
@@ -99,7 +99,7 @@ if { $SCORE > $TEMP } {
     set FAIL "$FAIL Nodes - should match \[1,2,3,4\]\n"
 }
 
-send "suc 2 \[(1,2),(1,3),(2,3),(2,4),(3,4)\]\n"
+send "norm(suc 2 \[(1,2),(1,3),(2,3),(2,4),(3,4)\])\n"
 expect {
         "3,4"  
             {set SCORE [expr $SCORE+7]}
@@ -111,7 +111,7 @@ if { $SCORE > $TEMP } {
     set FAIL "$FAIL Suc - should match \[3,4\]\n"
 }
 
-send "detach 3 \[(1,2),(1,3),(2,3),(2,4),(3,4)\]\n"
+send "norm(detach 3 \[(1,2),(1,3),(2,3),(2,4),(3,4)\])\n"
 expect {
         "(1,2),(2,4)"  
             {set SCORE [expr $SCORE+7]}
@@ -123,7 +123,7 @@ if { $SCORE > $TEMP } {
     set FAIL "$FAIL Detach - should match \[(1,2),(2,4)\]\n"
 }
 
-send "cyc 4\n"
+send "norm(cyc 4)\n"
 expect {
         "(1,2),(2,3),(3,4),(4,1)"  
             {set SCORE [expr $SCORE+7]}
