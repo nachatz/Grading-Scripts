@@ -2,7 +2,7 @@
 
 spawn ghci
 expect "*> "
-send ":l hw5-types.hs\n"
+send ":l main.hs\n"
 expect "*Main>"
 set POINTS 0
 set FAIL ""
